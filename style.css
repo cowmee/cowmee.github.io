@@ -1,79 +1,121 @@
-/* creating variables for colors to be used */
 :root {
-    --grass-green: #62a020;
-    --field-line: #ffffff;
-    --dirt-brown: #8B4513;
-    --sky-blue: #87CEEB;
-    --base-spacing: 1rem;
-    --nav-height: 4rem;
-    --nav-button-width: 10rem;
+  /* creating variables for colors to be used */
+  --darker-green: #69db7c;
+  --lighter-green: #ebfbee;
+  --text-color: #000000;
+  --nav-color: #ffffff;
+  --sky-blue: #87ceeb;
+
+  /* creating variables for spacing */
+  --base-spacing: 1rem;
+  --nav-height: 4rem;
+  --nav-button-width: 10rem;
+  --footer-height: 0.5rem;
 }
 
+/* styling the general page */
 body {
-    margin: 0;
-    padding: 0;
-    /*font-family: not sure yet*/
-    background-color: var(--grass-green);
-    color: var(--field-line);
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  font-family: Trebuchet MS;
+  background-color: var(--darker-green);
+  color: var(--text-color);
 }
 
-header {
-    padding-top: calc(var(--nav-height) + 1rem); /* dynamic padding based on nav height */
-}
-
+/* styling the nav bar */
 nav {
-    background-color: var(--sky-blue);
-    position: fixed;
-    top: 0;
-    width: 100%;
-    box-shadow: 0 0.125rem 0.3rem rgba(0, 0, 0, 0.2);
-    z-index: 100; /* ensure nav stays on top */
+  background-color: var(--nav-color);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-shadow: 0 0.125rem 0.3rem rgba(0, 0, 0, 0.2);
+  z-index: 100; /* ensure nav stays on top */
 }
 
 nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0.9rem;
-    display: flex;
-    justify-content: space-around;
-    gap: 1rem;
+  list-style-type: none;
+  margin: 0;
+  padding: 0.9rem;
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
 }
 
 nav li {
-    display: flex;
-    justify-content: center;
-    width: var(--nav-button-width);
+  display: flex;
+  justify-content: center;
+  width: var(--nav-button-width);
 }
 
 nav a {
-    color: var(--field-line);
-    text-decoration: none;
-    font-weight: bold;
-    padding: 0.625rem;
-    transition: color 0.3s ease;
-    background-color: var(--sky-blue);
-    border: 0.0625rem solid var(--field-line);
-    border-radius: 0.25rem;
-    margin: 0 0.3rem;
-    width: 100%;
-    box-sizing: border-box;
-    text-align: center;
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.625rem;
+  transition: color 0.3s ease;
+  background-color: var(--darker-green);
+
+  /* borders for buttons */
+  border: 0.25rem solid var(--text-color);
+  border-radius: 0.2rem;
+  margin: 0 0.3rem;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
 }
 
+header {
+  padding-top: calc(
+    var(--nav-height) + 1rem
+  ); /* dynamic padding based on nav height */
+
+  height: calc(50vh - var(--nav-height) - var(--footer-height) / 2);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* styling the banner */
+
+.banner {
+  box-shadow: 0 0.125rem 0.3rem rgba(0, 0, 0, 0.2);
+}
+
+.banner-text {
+  color: var(--text-color);
+  text-align: center;
+  padding: 5rem;
+}
+
+.banner-header {
+  font-size: 5 rem;
+  margin-bottom: 1rem;
+}
+
+.banner-subtitle {
+  font-size: 1 rem;
+  margin-bottom: 1rem;
+}
+
+/* styling the main content */
 main {
-    padding: 1.25rem;
-}
+  background-color: var(--lighter-green);
+  flex: 1;
+  padding: 1.25rem;
 
-h1, h2, h3 {
-    color: var(--field-line);
+  height: calc(50vh - var(--footer-height) / 2);
+  overflow-y: auto;
+  box-sizing: border-box;
 }
 
 footer {
-    background-color: var(--dirt-brown);
-    color: var(--field-line);
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    padding: 1rem;
+  background-color: var(--lighter-green);
+  color: var(--text-color);
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
