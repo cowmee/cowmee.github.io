@@ -1,0 +1,79 @@
+/* creating variables for colors to be used */
+:root {
+    --grass-green: #62a020;
+    --field-line: #ffffff;
+    --dirt-brown: #8B4513;
+    --sky-blue: #87CEEB;
+    --base-spacing: 1rem;
+    --nav-height: 4rem;
+    --nav-button-width: 10rem;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    /*font-family: not sure yet*/
+    background-color: var(--grass-green);
+    color: var(--field-line);
+}
+
+header {
+    padding-top: calc(var(--nav-height) + 1rem); /* dynamic padding based on nav height */
+}
+
+nav {
+    background-color: var(--sky-blue);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-shadow: 0 0.125rem 0.3rem rgba(0, 0, 0, 0.2);
+    z-index: 100; /* ensure nav stays on top */
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0.9rem;
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+nav li {
+    display: flex;
+    justify-content: center;
+    width: var(--nav-button-width);
+}
+
+nav a {
+    color: var(--field-line);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.625rem;
+    transition: color 0.3s ease;
+    background-color: var(--sky-blue);
+    border: 0.0625rem solid var(--field-line);
+    border-radius: 0.25rem;
+    margin: 0 0.3rem;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+main {
+    padding: 1.25rem;
+}
+
+h1, h2, h3 {
+    color: var(--field-line);
+}
+
+footer {
+    background-color: var(--dirt-brown);
+    color: var(--field-line);
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 1rem;
+}
