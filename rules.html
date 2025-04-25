@@ -3,6 +3,7 @@
   <head>
     <title>Rules</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
   </head>
   <body>
     <nav>
@@ -16,30 +17,103 @@
     </nav>
 
     <header>
-    <h1>Rules</h1>
-    <p>Rules about ⚽️.</p>
+      <div class="banner">
+        <h1 class="banner-header">Rules</h1>
+        <p class="banner-subtitle">Rules about ⚽️.</p>
+      </div>
     </header>
 
     <main>
-        <!-- Rules here-->
-      <section>
+      <!-- Rules here-->
+      <section class="positions-section">
         <h3>How to Play Soccer</h3>
-        <p>You score goals... etc. etc.</p>
+        <p>
+          The official game is played on a soccer field that is about 100-120
+          yards long and around 70 yards wide. Players cannot touch the ball
+          with their hands (with the exception of the goalkeeper position) and
+          must put the ball into the opposing team's net. <br /><br />
+
+          The game is split into two 45 minute halves, and whoever scores the
+          most goals by the end of the 90 minutes wins the game. <br /><br />
+
+          That's the general structure of the game. There are many more rules,
+          but these are the most important ones to know to follow the game.
+        </p>
       </section>
+
+      <!-- Maybe a little section about the offsides rule-->
 
       <!-- Positions -->
       <section>
         <h3>Positions</h3>
-        <p>There are 11 players on the field, 1 goalkeeper, 10 field players</p>
+        <p>
+          Like most team sports, there are positions on the field to organize
+          players. There are 11 players on the field, 1 goalkeeper, 10 field
+          players
+        </p>
 
-        <h4>Goalkeeper</h4>
-        <p>The goalkeeper is the only player allowed to touch the ball with their hands</p>
-        <h4>Defenders</h4>
-        <p>Defenders are the players who defend the goal</p>
-        <h4>Midfielders</h4>
-        <p>Midfielders are the players who control the ball and pass it to other players</p>
-        <h4>Forwards</h4>
-        <p>Forwards are the players who score goals</p>
+        <div class="position-container">
+          <button
+            class="position-button"
+            onclick="togglePosition('goalkeeper')"
+          >
+            Goalkeeper
+          </button>
+          <div id="goalkeeper" class="position-content">
+            <p>
+              The goalkeeper is the only player allowed to touch the ball with
+              their hands. They are the last line of defense and are responsible
+              for keeping the ball out of the net. Goalkeepers can only touch
+              the ball with their hands within the penalty box.
+            </p>
+          </div>
+        </div>
+
+        <div class="position-container">
+          <button class="position-button" onclick="togglePosition('defenders')">
+            Defenders
+          </button>
+          <div id="defenders" class="position-content">
+            <p>
+              Defenders are the players who defend the goal. They are typically
+              positioned lower than the other players to provide cover from
+              opposition attacks. Defenders are usually some of the taller and
+              physical players.
+            </p>
+          </div>
+        </div>
+
+        <div class="position-container">
+          <button
+            class="position-button"
+            onclick="togglePosition('midfielders')"
+          >
+            Midfielders
+          </button>
+          <div id="midfielders" class="position-content">
+            <p>
+              Midfielders are the players who do a little bit of everything.
+              They defend when needed, but they also help out with attacks.
+              Midfielders control the midfield, and connect the defense and
+              attack by passing the ball. Midfielders are typically the more
+              technical and intelligent players.
+            </p>
+          </div>
+        </div>
+
+        <div class="position-container">
+          <button class="position-button" onclick="togglePosition('forwards')">
+            Forwards
+          </button>
+          <div id="forwards" class="position-content">
+            <p>
+              Forwards are the players whose main job is to score goals. They
+              are the players positioned closest to the opposition goal.
+              Forwards are typically some of the fastest and most creative
+              players on the team in order to create chances.
+            </p>
+          </div>
+        </div>
       </section>
 
       <!-- Formations -->
@@ -50,7 +124,7 @@
     </main>
 
     <footer>
-      <p>© 2024 Soccer Tactics. All rights reserved.</p>
+      <p>© 2025 Soccer Tactics. All rights reserved.</p>
     </footer>
   </body>
 </html>
