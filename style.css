@@ -10,7 +10,8 @@
   --base-spacing: 1rem;
   --nav-height: 4rem;
   --nav-button-width: 10rem;
-  --footer-height: 0.5rem;
+  --footer-height: 3rem;
+  --border-width: 0.25rem;
 }
 
 /* styling the general page */
@@ -22,6 +23,7 @@ body {
   font-family: Trebuchet MS;
   background-color: var(--darker-green);
   color: var(--text-color);
+  overflow-y: auto;
 }
 
 /* styling the nav bar */
@@ -32,6 +34,8 @@ nav {
   width: 100%;
   box-shadow: 0 0.125rem 0.3rem rgba(0, 0, 0, 0.2);
   z-index: 100; /* ensure nav stays on top */
+  border-width: var(--border-width);
+  border-style: solid;
 }
 
 nav ul {
@@ -58,7 +62,7 @@ nav a {
   background-color: var(--darker-green);
 
   /* borders for buttons */
-  border: 0.25rem solid var(--text-color);
+  border: var(--border-width) solid var(--text-color);
   border-radius: 0.2rem;
   margin: 0 0.3rem;
   width: 100%;
@@ -71,17 +75,48 @@ header {
     var(--nav-height) + 1rem
   ); /* dynamic padding based on nav height */
 
-  height: calc(50vh - var(--nav-height) - var(--footer-height) / 2);
+  height: calc(70vh - var(--nav-height) - var(--footer-height) / 2);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  flex: 1;
+  
+  /* background-image: url("images/banner.jpg"); */
 }
+
+/* styling the main content */
+main {
+  background-color: var(--lighter-green);
+  flex: 1;
+  display: flex;
+  padding: 1.25rem;
+  flex-direction: column;
+
+  height: calc(50vh - var(--footer-height) / 2);
+  box-sizing: border-box;
+  border-width: var(--border-width);
+  border-style: solid;
+}
+
+footer {
+  background-color: var(--darker-green);
+  color: var(--text-color);
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+  height: var(--footer-height);
+  border-width: var(--border-width);
+  border-style: solid;
+  border-top: 0rem;
+}
+
 
 /* styling the banner */
 
 .banner {
   box-shadow: 0 0.125rem 0.3rem rgba(0, 0, 0, 0.2);
+  padding: 1rem;
 }
 
 .banner-text {
@@ -91,31 +126,81 @@ header {
 }
 
 .banner-header {
-  font-size: 5 rem;
+  font-size: 3rem;
   margin-bottom: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.5rem;
 }
 
 .banner-subtitle {
-  font-size: 1 rem;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: normal;
+  letter-spacing: 0.05rem;
+}
+
+/* index.html styling */
+/* styling the about section */
+.about-section {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  height: 100%;
+  padding: 0.5rem;
+}
+
+.about-image {
+  flex: 2;
+  height: 100%;
+  padding: 1rem;
+}
+
+.about-image img {
+  width: 100%;
+  height: 50%;
+  max-height: 10rem;
+  object-fit: contain;
   margin-bottom: 1rem;
 }
 
-/* styling the main content */
-main {
-  background-color: var(--lighter-green);
-  flex: 1;
-  padding: 1.25rem;
-
-  height: calc(50vh - var(--footer-height) / 2);
-  overflow-y: auto;
-  box-sizing: border-box;
+.about-text {
+  flex: 5;
 }
 
-footer {
-  background-color: var(--lighter-green);
-  color: var(--text-color);
-  text-align: center;
-  position: fixed;
-  bottom: 0;
+/* Styling for the positions section */
+.positions-section {
+  margin-bottom: 2rem;
+}
+
+.position-container {
+  margin: 1rem 0;
+}
+
+.position-button {
+  background-color: var(--sky-blue);
+  color: var(--field-line);
+  border: 0.0625rem solid var(--field-line);
+  border-radius: 0.25rem;
+  padding: 0.625rem 1.25rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
   width: 100%;
+  text-align: left;
+  transition: background-color 0.3s ease;
 }
+
+.position-button:hover {
+  background-color: #4ac0ee; /* Slightly darker blue on hover */
+}
+
+.position-content {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-left: 0.25rem solid var(--sky-blue);
+  padding: 1rem;
+  margin-top: 0.5rem;
+  border-radius: 0 0.25rem 0.25rem 0;
+  /* Initially hidden, will be shown by JavaScript */
+  display: none;
+}
+
