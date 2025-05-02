@@ -25,101 +25,114 @@
 
     <main>
       <!-- Rules here-->
-      <section class="positions-section">
-        <h3>How to Play Soccer</h3>
-        <p>
-          The official game is played on a soccer field that is about 100-120
-          yards long and around 70 yards wide. Players cannot touch the ball
-          with their hands (with the exception of the goalkeeper position) and
-          must put the ball into the opposing team's net. <br /><br />
+      <!-- Position Snaps -->
 
-          The game is split into two 45 minute halves, and whoever scores the
-          most goals by the end of the 90 minutes wins the game. <br /><br />
+      <section class="positions-section snap-container">
+        <div class="position-snap" id="rules">
+          <img src="images/default_2teams.png" alt="Rules" />
+          <div>
+            <h3>How to Play Soccer</h3>
+            <p>
+              The official game is played on a soccer field that is about
+              100-120 yards long and around 70 yards wide. Players cannot touch
+              the ball with their hands (with the exception of the goalkeeper
+              position) and must put the ball into the opposing team's net.
+              <br /><br />
 
-          That's the general structure of the game. There are many more rules,
-          but these are the most important ones to know to follow the game.
-        </p>
-      </section>
+              The game is split into two 45 minute halves, and whoever scores
+              the most goals by the end of the 90 minutes wins the game.
+              <br /><br />
 
-      <!-- Maybe a little section about the offsides rule-->
+              That's the general structure of the game. There are many more
+              rules, but these are the most important ones to know to follow the
+              game.
+            </p>
+          </div>
+        </div>
 
-      <!-- Positions -->
-      <section>
-        <h3>Positions</h3>
-        <p>
-          Like most team sports, there are positions on the field to organize
-          players. There are 11 players on the field, 1 goalkeeper, 10 field
-          players
-        </p>
+        <div class="position-snap" id="positions">
+          <img src="images/whatever.jpg" alt="Positions" />
+          <div>
+            <h3>Positions</h3>
+            <p>
+              Like most team sports, there are positions on the field to
+              organize players. There are 11 players on the field, 1 goalkeeper,
+              10 field players
+            </p>
+          </div>
+        </div>
 
-        <div class="position-container">
-          <button
-            class="position-button"
-            onclick="togglePosition('goalkeeper')"
-          >
-            Goalkeeper
-          </button>
-          <div id="goalkeeper" class="position-content">
+        <div class="position-snap" id="goalkeeper">
+          <img src="images/goalkeeper.jpg" alt="Goalkeeper" />
+          <div>
+            <h3>Goalkeeper</h3>
             <p>
               The goalkeeper is the only player allowed to touch the ball with
-              their hands. They are the last line of defense and are responsible
-              for keeping the ball out of the net. Goalkeepers can only touch
-              the ball with their hands within the penalty box.
+              their hands...
             </p>
           </div>
         </div>
 
-        <div class="position-container">
-          <button class="position-button" onclick="togglePosition('defenders')">
-            Defenders
-          </button>
-          <div id="defenders" class="position-content">
+        <div class="position-snap" id="defenders">
+          <img src="images/defender.jpg" alt="Defenders" />
+          <div>
+            <h3>Defenders</h3>
             <p>
-              Defenders are the players who defend the goal. They are typically
-              positioned lower than the other players to provide cover from
-              opposition attacks. Defenders are usually some of the taller and
-              physical players.
+              Defenders are positioned lower and focus on stopping opposition
+              attacks...
             </p>
           </div>
         </div>
 
-        <div class="position-container">
-          <button
-            class="position-button"
-            onclick="togglePosition('midfielders')"
-          >
-            Midfielders
-          </button>
-          <div id="midfielders" class="position-content">
+        <div class="position-snap" id="midfielders">
+          <img src="images/midfielder.jpg" alt="Midfielders" />
+          <div>
+            <h3>Midfielders</h3>
             <p>
-              Midfielders are the players who do a little bit of everything.
-              They defend when needed, but they also help out with attacks.
-              Midfielders control the midfield, and connect the defense and
-              attack by passing the ball. Midfielders are typically the more
-              technical and intelligent players.
+              Midfielders link the defense and attack, helping control the
+              game's flow...
             </p>
           </div>
         </div>
 
-        <div class="position-container">
-          <button class="position-button" onclick="togglePosition('forwards')">
-            Forwards
-          </button>
-          <div id="forwards" class="position-content">
+        <div class="position-snap" id="forwards">
+          <img src="images/forward.jpg" alt="Forwards" />
+          <div>
+            <h3>Forwards</h3>
             <p>
-              Forwards are the players whose main job is to score goals. They
-              are the players positioned closest to the opposition goal.
-              Forwards are typically some of the fastest and most creative
-              players on the team in order to create chances.
+              Forwards are goal-scorers, often the fastest and most creative
+              players...
             </p>
           </div>
         </div>
-      </section>
 
-      <!-- Formations -->
-      <section>
-        <h3>Formations</h3>
-        <p>Formations are the way the players are positioned on the field</p>
+        <div class="position-snap" id="formations">
+          <img src="images/default_pos.png" alt="Formations" />
+          <div>
+            <h3>Formations</h3>
+            <p>
+              Formations are the way the players are positioned on the field. 
+              There are many different formations, each with their own strengths 
+              and weaknesses. Choosing a formation depends on the tactics the 
+              team want to use.
+              <br><br>
+
+              This formation is a 4-3-3, where there are 4 defenders, 3 midfielders,
+              and 3 forwards (we typically leave the keeper out of the formation).
+              The 4-3-3 is one of the most popular formations in today's modern game.
+            </p>
+          </div>
+        </div>
+
+        <div class="scroll-dots">
+          <span class="dot" data-target="rules"></span>
+          <span class="dot" data-target="positions"></span>
+          <span class="dot" data-target="goalkeeper"></span>
+          <span class="dot" data-target="defenders"></span>
+          <span class="dot" data-target="midfielders"></span>
+          <span class="dot" data-target="forwards"></span>
+          <span class="dot" data-target="formations"></span>
+        </div>
       </section>
     </main>
 

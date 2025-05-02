@@ -81,7 +81,7 @@ header {
   flex-direction: column;
   justify-content: center;
   flex: 1;
-  
+
   /* background-image: url("images/banner.jpg"); */
 }
 
@@ -110,7 +110,6 @@ footer {
   border-style: solid;
   border-top: 0rem;
 }
-
 
 /* styling the banner */
 
@@ -168,7 +167,7 @@ footer {
   align-self: center;
 }
 
-/* Styling for the positions section */
+/* Styling for the positions scroll */
 .positions-section {
   margin-bottom: 2rem;
 }
@@ -177,31 +176,83 @@ footer {
   margin: 1rem 0;
 }
 
-.position-button {
-  background-color: var(--sky-blue);
-  color: var(--field-line);
-  border: 0.0625rem solid var(--field-line);
-  border-radius: 0.25rem;
-  padding: 0.625rem 1.25rem;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  width: 100%;
-  text-align: left;
-  transition: background-color 0.3s ease;
-}
-
-.position-button:hover {
-  background-color: #4ac0ee; /* Slightly darker blue on hover */
-}
-
 .position-content {
   background-color: rgba(0, 0, 0, 0.1);
   border-left: 0.25rem solid var(--sky-blue);
   padding: 1rem;
   margin-top: 0.5rem;
   border-radius: 0 0.25rem 0.25rem 0;
-  /* Initially hidden, will be shown by JavaScript */
-  display: none;
+  /*display: none;*/
 }
 
+.snap-container {
+  height: 100vh;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  position: relative;
+}
+
+.position-snap {
+  height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  text-align: center;
+  animation: bounce-scroll 0.6s ease-in-out;
+}
+
+.position-snap img {
+  max-height: 50vh;
+  object-fit: contain;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem;
+  /* border-radius: 0.5rem; */
+}
+
+.scroll-dots {
+  position: fixed;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+.scroll-dots .dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background-color: #ccc;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.scroll-dots .dot.active {
+  background-color: var(--sky-blue);
+}
+
+/* Bounce effect */
+@keyframes bounce-scroll {
+  0% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.bounce {
+  animation: bounce-scroll 0.6s ease-in-out;
+}

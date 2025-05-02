@@ -1,0 +1,58 @@
+        <div class="field-image-container">
+          <img
+            src="images/default_pos.png"
+            usemap="#positions-map"
+            alt="Soccer Field with Positions"
+          />
+
+          <map name="positions-map">
+            <area shape="rect" coords="" href="#goalkeeper" alt="Goalkeeper" />
+            <area
+              shape="rect"
+              coords="150,300,40"
+              href="#defenders"
+              alt="Defenders"
+            />
+            <area
+              shape="rect"
+              coords="57, 398, 588, 634"
+              href="#midfielders"
+              alt="Midfielders"
+            />
+            <area
+              shape="rect"
+              coords="38,198, 620, 397"
+              href="#forwards"
+              alt="Forwards"
+            />
+          </map>
+        </div>
+
+
+/* styling the positions field image */
+.field-image-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.field-image-container img {
+  width: 100%;
+  height: 50%;
+  border: 2px solid var(--text-color);
+  border-radius: 0.5rem;
+}
+
+
+// smooth scroll for field positions
+document.querySelectorAll("area").forEach((area) => {
+  area.addEventListener("click", (e) => {
+    e.preventDefault();
+    const targetId = area.getAttribute("href").substring(1);
+    const target = document.getElementById(targetId);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    }
+  });
+});
