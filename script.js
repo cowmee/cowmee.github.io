@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // horizontal scrolling snap functionality
   initHorizontalScrolling();
 
+  // image transitions and content scrolling
+  initTeamsSection();
 });
 
 // parallax effect for banner
@@ -128,4 +130,74 @@ function initHorizontalScrolling() {
       });
     });
   });
+}
+
+// image transitions and content scrolling functionality
+function initTeamsSection() {
+  const teamContents = document.querySelectorAll('.teams-content');
+  const teamImages = document.querySelectorAll('.teams-image');
+  const contentScroll = document.querySelector('.teams-content-scroll');
+  
+  if (!contentScroll || teamContents.length === 0) return;
+  
+  // Create an intersection observer for the team contents
+  const teamObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Get the image ID from the data attribute
+          const imageId = entry.target.dataset.image;
+          
+          // Hide all images
+          teamImages.forEach(img => {
+            img.classList.remove('active');
+          });
+          
+          // Show the corresponding image
+          const targetImage = document.getElementById(imageId);
+          if (targetImage) {
+            setTimeout(() => {
+              targetImage.classList.add('active');
+            }, 100); // Small delay for better transition effect
+          }
+        }
+      });
+    },
+    {
+      threshold: 0.7,
+      root: contentScroll
+    }
+  );
+  
+  // Observe each team content section
+  teamContents.forEach(content => {
+    teamObserver.observe(content);
+  });
+  
+  // Optional: Add scroll buttons for better UX
+  const nextButton = document.createElement('button');
+  nextButton.className = 'team-scroll-btn next-btn';
+  nextButton.innerHTML = '&rarr;';
+  nextButton.addEventListener('click', () => {
+    contentScroll.scrollBy({
+      left: contentScroll.clientWidth,
+      behavior: 'smooth'
+    });
+  });
+  
+  const prevButton = document.createElement('button');
+  prevButton.className = 'team-scroll-btn prev-btn';
+  prevButton.innerHTML = '&larr;';
+  prevButton.addEventListener('click', () => {
+    contentScroll.scrollBy({
+      left: -contentScroll.clientWidth,
+      behavior: 'smooth'
+    });
+  });
+  
+  const teamsContainer = document.querySelector('.teams-container');
+  if (teamsContainer) {
+    teamsContainer.appendChild(nextButton);
+    teamsContainer.appendChild(prevButton);
+  }
 }
