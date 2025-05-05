@@ -174,30 +174,4 @@ function initTeamsSection() {
     teamObserver.observe(content);
   });
   
-  // Optional: Add scroll buttons for better UX
-  const nextButton = document.createElement('button');
-  nextButton.className = 'team-scroll-btn next-btn';
-  nextButton.innerHTML = '&rarr;';
-  nextButton.addEventListener('click', () => {
-    contentScroll.scrollBy({
-      left: contentScroll.clientWidth,
-      behavior: 'smooth'
-    });
-  });
-  
-  const prevButton = document.createElement('button');
-  prevButton.className = 'team-scroll-btn prev-btn';
-  prevButton.innerHTML = '&larr;';
-  prevButton.addEventListener('click', () => {
-    contentScroll.scrollBy({
-      left: -contentScroll.clientWidth,
-      behavior: 'smooth'
-    });
-  });
-  
-  const teamsContainer = document.querySelector('.teams-container');
-  if (teamsContainer) {
-    teamsContainer.appendChild(nextButton);
-    teamsContainer.appendChild(prevButton);
-  }
 }
