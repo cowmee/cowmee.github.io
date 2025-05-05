@@ -14,7 +14,7 @@
   --border-width: 0.25rem;
 }
 
-/* styling the general page */
+/* ------- styling the general page -------- */
 body {
   display: flex;
   flex-direction: column;
@@ -82,7 +82,6 @@ header {
   justify-content: center;
   flex: 1;
 
-  /* background-image: url("images/banner.jpg"); */
 }
 
 /* styling the main content */
@@ -109,10 +108,10 @@ footer {
   border-width: var(--border-width);
   border-style: solid;
   border-top: 0rem;
+  box-sizing: border-box;
 }
 
 /* styling the banner */
-
 .banner {
   box-shadow: 0 0.125rem 0.3rem rgba(0, 0, 0, 0.2);
   padding: 1rem;
@@ -155,8 +154,7 @@ footer {
   letter-spacing: 0.05rem;
 }
 
-/* index.html styling */
-/* styling the about section */
+/* ------- styling the about section ------- */
 .about-section {
   display: flex;
   flex: 1;
@@ -184,8 +182,8 @@ footer {
   align-self: center;
 }
 
-/* styling for the snap scroll */
-/* vertical snap scroll */
+/* ------- styling for the snap scroll ------- */
+/* ------- vertical snap scroll ------- */
 .snap-container {
   height: 100vh;
   scroll-snap-type: y mandatory;
@@ -244,7 +242,7 @@ footer {
   background-color: var(--sky-blue);
 }
 
-/* Bounce effect */
+/* bounce effect */
 @keyframes bounce-scroll {
   0% {
     transform: translateY(0);
@@ -264,7 +262,7 @@ footer {
   animation: bounce-scroll 0.6s ease-in-out;
 }
 
-/* horizontal snapping */
+/* ------- horizontal snapping ------- */
 .h-snap-wrapper {
   position: relative;
   margin-bottom: 2rem;
