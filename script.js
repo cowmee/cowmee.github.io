@@ -5,6 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // position snap functionality
   initPositionScrolling();
+
+  // horizontal scrolling snap functionality
+  initHorizontalScrolling();
 });
 
 // parallax effect for banner
@@ -15,7 +18,7 @@ function initParallaxEffect() {
   if (banner) {
     window.addEventListener("scroll", () => {
       // calculate how far down the page we've scrolled
-      const scrollPosition = window.pageYOffset;
+      const scrollPosition = window;
       // move the background image at a slower rate than the scroll speed
       // the 0.5 value determines the speed (lower = slower parallax)
       banner.style.transform = `translateY(${scrollPosition * 0.5}px)`;
@@ -23,10 +26,10 @@ function initParallaxEffect() {
   }
 }
 
-// position snapping functionality 
+// position snapping functionality
 function initPositionScrolling() {
-  const dots = document.querySelectorAll(".dot");
-  const sections = document.querySelectorAll(".position-snap");
+  const dots = document.querySelectorAll(".scroll-dots .dot");
+  const sections = document.querySelectorAll(".snap-content");
 
   // goes through each section and checks if it's in view
   const observer = new IntersectionObserver(
@@ -61,6 +64,67 @@ function initPositionScrolling() {
     dot.addEventListener("click", () => {
       const targetId = dot.dataset.target;
       document.getElementById(targetId).scrollIntoView({ behavior: "smooth" });
+    });
+  });
+}
+
+// horizontal scrolling functionality
+function initHorizontalScrolling() {
+  const horizontalDots = document.querySelectorAll(".h-scroll-dots .dot");
+  const horizontalSections = document.querySelectorAll(".h-snap-content");
+
+  // track when user is manually scrolling
+  let isUserScrolling = false;
+  let scrollTimeout;
+
+  const container = document.querySelector(".h-snap-container");
+  if (container) {
+    container.addEventListener("scroll", () => {
+      isUserScrolling = true;
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        isUserScrolling = false;
+      }, 100);
+    });
+  }
+
+  // horizontal scroll observer (same logic as vertical scroll)
+  const horizontalObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          horizontalDots.forEach((dot) => {
+            dot.classList.toggle(
+              "active",
+              dot.dataset.target === entry.target.id
+            );
+          });
+
+          // Only add animation if not during user scrolling
+          if (!isUserScrolling) {
+            entry.target.classList.add("slide-in");
+            setTimeout(() => entry.target.classList.remove("slide-in"), 600);
+          }
+        }
+      });
+    },
+    {
+      threshold: 0.5,
+      root: document.querySelector(".horizontal-snap-container"),
+    }
+  );
+
+  // observe each horizontal section
+  horizontalSections.forEach((section) => horizontalObserver.observe(section));
+
+  // add click event to horizontal dots
+  horizontalDots.forEach((dot) => {
+    dot.addEventListener("click", () => {
+      const targetId = dot.dataset.target;
+      document.getElementById(targetId).scrollIntoView({
+        behavior: "smooth",
+        inline: "start",
+      });
     });
   });
 }
