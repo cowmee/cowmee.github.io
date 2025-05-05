@@ -1,8 +1,30 @@
-
-
-// position scrolling
-// ** used AI to learn about intersection observer
+// add event listener
 document.addEventListener("DOMContentLoaded", () => {
+  // parallax effect for the banner
+  initParallaxEffect();
+
+  // position snap functionality
+  initPositionScrolling();
+});
+
+// parallax effect for banner
+function initParallaxEffect() {
+  // choose banner image
+  const banner = document.querySelector(".banner img");
+
+  if (banner) {
+    window.addEventListener("scroll", () => {
+      // calculate how far down the page we've scrolled
+      const scrollPosition = window.pageYOffset;
+      // move the background image at a slower rate than the scroll speed
+      // the 0.5 value determines the speed (lower = slower parallax)
+      banner.style.transform = `translateY(${scrollPosition * 0.5}px)`;
+    });
+  }
+}
+
+// position snapping functionality 
+function initPositionScrolling() {
   const dots = document.querySelectorAll(".dot");
   const sections = document.querySelectorAll(".position-snap");
 
@@ -41,4 +63,4 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById(targetId).scrollIntoView({ behavior: "smooth" });
     });
   });
-});
+}
