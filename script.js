@@ -18,7 +18,7 @@ function initParallaxEffect() {
   if (banner) {
     window.addEventListener("scroll", () => {
       // calculate how far down the page we've scrolled
-      const scrollPosition = window;
+      const scrollPosition = window.scrollY;
       // move the background image at a slower rate than the scroll speed
       // the 0.5 value determines the speed (lower = slower parallax)
       banner.style.transform = `translateY(${scrollPosition * 0.5}px)`;

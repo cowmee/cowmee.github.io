@@ -10,7 +10,7 @@
   --base-spacing: 1rem;
   --nav-height: 4rem;
   --nav-button-width: 10rem;
-  --footer-height: 3rem;
+  --footer-height: 4rem;
   --border-width: 0.25rem;
 }
 
@@ -111,6 +111,12 @@ footer {
   box-sizing: border-box;
 }
 
+p {
+  font-size: 1.125rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
 /* styling the banner */
 .banner {
   box-shadow: 0 0.125rem 0.3rem rgba(0, 0, 0, 0.2);
@@ -123,10 +129,10 @@ footer {
 
 .banner img {
   width: 100%;
-  height: 120%; /* increased height gives room for parallax movement */
+  height: 150%; /* increased height gives room for parallax movement */
   object-fit: cover;
   position: absolute;
-  top: 0;
+  top: -25%;
   left: 0;
   z-index: 1;
   will-change: transform; /* optimizes for performance */
