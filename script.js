@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // horizontal scrolling snap functionality
   initHorizontalScrolling();
+
 });
 
 // parallax effect for banner
