@@ -87,7 +87,6 @@ header {
   flex-direction: column;
   justify-content: center;
   flex: 1;
-
 }
 
 /* styling the main content */
@@ -417,7 +416,6 @@ p {
   flex: 1;
   position: relative;
   overflow: hidden;
-  /*background-color: #000;*/
 }
 
 .teams-image {
@@ -466,4 +464,15 @@ p {
   color: var(--text-color);
 }
 
+/* Styling for links in team content */
+.teams-content a {
+  color: var(--sky-blue);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
 
+.teams-content a:hover {
+  color: var(--darker-green);
+  text-decoration: underline;
+}
